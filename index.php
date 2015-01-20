@@ -2,13 +2,13 @@
 /*
 Plugin Name: LastWP LastFM for Wordpress
 Plugin URI: http://nicolasbettag.com
-Description: Recently played Track Widget for Wordpress.
-Version: 1.0
+Description: Recently played LastFM Track Widget for Wordpress 4.0
+Version: 0.1
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
 License: GPLv2
 */
-/*  Copyright 2015 Nicolas Bettag (email : nicolas@darkcookies.de)
+/*  Copyright 2015 Nicolas Bettag (if you want to contact me, check http://nicolasbettag.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -37,7 +37,7 @@ License: GPLv2
 	?>
 	<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'wp_widget_plugin'); ?></label>
 	<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
-	<p><label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Last.FM Benutzername:', 'wp_widget_plugin'); ?></label>
+	<p><label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Last.FM Username:', 'wp_widget_plugin'); ?></label>
 	<input class="widefat" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>" type="text" value="<?php echo $textarea; ?>" /></p>
 	<?php
 	}
@@ -62,12 +62,12 @@ License: GPLv2
     echo '<div class="widget-textarea" style="padding: 10px; margin-top: -125px;">';
     if( $textarea ) {
     echo '<p class="wp_widget_plugin_textarea" style="font-size:15px;">'.$textarea.'</p>';
-    $vonseite = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='.$textarea.'&api_key=b3f34d8652bf87d8d1dcbfa5c53d245d&limit=5';
-	$response = @simplexml_load_file($vonseite) or die ("Fehler!");
+
+    $lastfm_api = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='.$textarea.'&api_key=b3f34d8652bf87d8d1dcbfa5c53d245d&limit=5';
+	$lastfm_response = @simplexml_load_file($lastfm_api) or die ("Fehler!");
 
 	echo "<table>";
-	foreach ($response->recenttracks->track as $tracks) {
-
+	foreach ($lastfm_response->recenttracks->track as $tracks) {
 	echo "<tr>";
 	echo "<td>";
 	$img = $tracks->image[0];
@@ -87,5 +87,5 @@ License: GPLv2
    	echo $after_widget;
 	}
 	}
-	add_action('widgets_init', create_function('', 'return register_widget("my_plugin");')); 
+	add_action('widgets_init', create_function('', 'return register_widget("LastWP_plugin");')); 
 ?>
