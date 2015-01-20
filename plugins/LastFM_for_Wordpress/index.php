@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: WordLastFM for Wordpress
+Plugin Name: LastWP LastFM for Wordpress
 Plugin URI: http://nicolasbettag.com
-Description: Recently played Track Widget for Wordpress. Developed by Nicolas Bettag.
+Description: Recently played Track Widget for Wordpress.
 Version: 1.0
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
@@ -10,7 +10,7 @@ License: GPLv2
 */
 	class my_plugin extends WP_Widget {
 		function my_plugin() {
-		        parent::WP_Widget(false, $name = __('My Widget', 'wp_widget_plugin') );
+		        parent::WP_Widget(false, $name = __('LastWP LastFM for Wordpress', 'LastWP_plugin') );
 		}
 	function form($instance) {
 
@@ -40,11 +40,9 @@ License: GPLv2
 }
 	function widget($args, $instance) {
    	extract( $args );
-   
    	$title = apply_filters('widget_title', $instance['title']);
     $textarea = $instance['textarea'];
    	echo $before_widget;
-  
    	echo '<div class="widget-text wp_widget_plugin_box" style="width:269px;">';
     echo '<div class="widget-title" style="width: 90%; height:30px; margin-left:3%; ">';
    
@@ -59,7 +57,6 @@ License: GPLv2
 	$response = @simplexml_load_file($vonseite) or die ("Fehler!");
 
 	echo "<table>";
-
 	foreach ($response->recenttracks->track as $tracks) {
 
 	echo "<tr>";
@@ -74,7 +71,6 @@ License: GPLv2
     echo "</tr>";
 	echo "<br>";
 	}
-
 	echo "</table>";
    	}
    	echo '</div>';
