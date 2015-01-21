@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: LastFM PLAYED for Wordpress
+Plugin Name: LastFM Played for Wordpress
 Plugin URI: http://nicolasbettag.com
 Description: Recently played LastFM Track Widget for Wordpress 4.0
-Version: 0.1
+Version: 0.2
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
 License: GPLv2
@@ -24,7 +24,7 @@ License: GPLv2
 */
 	class LastWP_plugin extends WP_Widget {
 		function LastWP_plugin() {
-		parent::WP_Widget(false, $name = __('LastFM PLAYED for Wordpress', 'LastWP_plugin') );
+		parent::WP_Widget(false, $name = __('LastFM Played for Wordpress', 'LastWP_plugin') );
 		}
 	function form($instance) {
 	if( $instance) {
@@ -59,23 +59,51 @@ License: GPLv2
     echo  $before_title . $title . $after_title ;
    	}
 	echo '</div>';
-    echo '<div class="widget-textarea" style="padding: 10px; margin-top: -125px;">';
+    echo '<div class="widget-textarea" style="padding: 10px;">';
     if( $textarea ) {
-    echo '<p class="wp_widget_plugin_textarea" style="font-size:15px;">'.$textarea.'</p>';
 
     $lastfm_api = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='.$textarea.'&api_key=b3f34d8652bf87d8d1dcbfa5c53d245d&limit=5';
-	$lastfm_response = @simplexml_load_file($lastfm_api) or die ("Fehler!");
+	$lastfm_response = @simplexml_load_file($lastfm_api);
+
+	$lastfm_api_user = 'http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user='.$textarea.'&api_key=b3f34d8652bf87d8d1dcbfa5c53d245d';
+	$lastfm_user = @simplexml_load_file($lastfm_api_user);
+
+	$user_name = $lastfm_user->user->name;
+	$realname = $lastfm_user->user->realname;
+	$user_url = $lastfm_user->user->url;
+	$userpicture = $lastfm_user->user->image[1];
+	$scrobbles = $lastfm_user->user->playcount;
 
 	echo "<table>";
-	foreach ($lastfm_response->recenttracks->track as $tracks) {
 	echo "<tr>";
-	echo "<td>";
-	$img = $tracks->image[0];
-	echo '<img src="'.$img.'" />';
+	echo "<td style='width: 70px;'>";
+	echo '<img width="100%" height="100%" src="'.$userpicture.'" />';
 	echo "</td>";
 	echo "<td style='vertical-align: top; line-height: 1.1;'>";
-    if ($tracks->name)   	echo "<small>" . $tracks->name . "</small><br>";
-    if ($tracks->artist)    echo "<small>" . $tracks->artist . "</small>";
+	echo $realname . '<br>';
+	echo '<a href="'.$user_url.'">' . $user_name . '</a><br>';
+	echo "<small>" . $scrobbles . ' Tracks</small>';
+ 	echo "</td>";
+    echo "</tr>";
+	echo "</table>";
+
+	echo "<table style='margin-top: -150px;''>";
+	foreach ($lastfm_response->recenttracks->track as $tracks) {
+	
+	$img = $tracks->image[1];
+	$name = $tracks->name;
+	$artist = $tracks->artist;
+	$time = $tracks->date['uts'];
+
+	echo "<tr>";
+	echo "<td style='width: 50px;'>";
+	echo '<img height="50" width="50" src="'.$img.'" />';
+	echo "</td>";
+	echo "<td style='vertical-align: top; line-height: 1.1;'>";
+    echo "<small>" . $name . "</small><br>";
+    echo "<small>" . $artist . "</small><br>";
+	echo "<small>" . human_time_diff($time) . " ago</small>";
+
     echo "</td>";
     echo "</tr>";
 	echo "<br>";
