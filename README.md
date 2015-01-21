@@ -1,6 +1,7 @@
 # LastFM-Played-for-WordPress
 
 Works with Wordpress 4.0+
+
 Drop the Widget in your Sidebar and enter your LastFM Username.
 
 Coming features:
