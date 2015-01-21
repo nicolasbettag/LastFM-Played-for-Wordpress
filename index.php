@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: LastWP LastFM for Wordpress
+Plugin Name: LastFM PLAYED for Wordpress
 Plugin URI: http://nicolasbettag.com
 Description: Recently played LastFM Track Widget for Wordpress 4.0
 Version: 0.1
@@ -22,9 +22,9 @@ License: GPLv2
     The license for this software can likely be found here: 
     http://www.gnu.org/licenses/gpl-2.0.html
 */
-	class my_plugin extends WP_Widget {
-		function my_plugin() {
-		parent::WP_Widget(false, $name = __('LastWP LastFM for Wordpress', 'LastWP_plugin') );
+	class LastWP_plugin extends WP_Widget {
+		function LastWP_plugin() {
+		parent::WP_Widget(false, $name = __('LastFM PLAYED for Wordpress', 'LastWP_plugin') );
 		}
 	function form($instance) {
 	if( $instance) {
