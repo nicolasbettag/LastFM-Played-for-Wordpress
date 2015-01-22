@@ -3,7 +3,7 @@
 Plugin Name: LastFM Played for Wordpress
 Plugin URI: http://nicolasbettag.com
 Description: Clean and simple recently played Last.FM Plugin for Wordpress
-Version: 0.3
+Version: 0.4
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
 License: GPLv2
@@ -73,6 +73,7 @@ License: GPLv2
 	$user_url = $lastfm_user->user->url;
 	$userpicture = $lastfm_user->user->image[1];
 	$scrobbles = $lastfm_user->user->playcount;
+	$time = $tracks->date['uts'];
 
 	echo "<table>";
 	echo "<tr>";
@@ -94,6 +95,20 @@ License: GPLv2
 	$name = $tracks->name;
 	$artist = $tracks->artist;
 	$time = $tracks->date['uts'];
+	$nowplaying = $tracks['nowplaying'];
+
+	if($nowplaying != ""){
+	
+	echo "<tr>";
+	echo "<td style='width: 50px;'>";
+	echo '<img height="50" width="50" src="'.$img.'" />';
+	echo "</td>";
+	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
+    echo "<small>" . $name . "</small><br>";
+    echo "<small>" . $artist . "</small><br>";
+	echo "<small>now playing</small>";
+
+	} else {
 
 	echo "<tr>";
 	echo "<td style='width: 50px;'>";
@@ -102,7 +117,7 @@ License: GPLv2
 	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
     echo "<small>" . $name . "</small><br>";
     echo "<small>" . $artist . "</small><br>";
-	echo "<small>" . human_time_diff($time) . " ago</small>";
+	echo "<small>" . human_time_diff($time) . " ago</small>";	}
 
     echo "</td>";
     echo "</tr>";
