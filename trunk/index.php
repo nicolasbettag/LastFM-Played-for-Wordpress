@@ -3,7 +3,7 @@
 Plugin Name: LastFM Played for Wordpress
 Plugin URI: http://nicolasbettag.com
 Description: Recently played LastFM Track Widget for Wordpress 4.0
-Version: 0.2
+Version: 0.3
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
 License: GPLv2
@@ -79,7 +79,7 @@ License: GPLv2
 	echo "<td style='width: 70px;'>";
 	echo '<img width="100%" height="100%" src="'.$userpicture.'" />';
 	echo "</td>";
-	echo "<td style='vertical-align: top; line-height: 1.1;'>";
+	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
 	echo $realname . '<br>';
 	echo '<a href="'.$user_url.'">' . $user_name . '</a><br>';
 	echo "<small>" . $scrobbles . ' Tracks</small>';
@@ -87,7 +87,7 @@ License: GPLv2
     echo "</tr>";
 	echo "</table>";
 
-	echo "<table style='margin-top: -150px;''>";
+	echo "<table style='margin-top: -100px;''>";
 	foreach ($lastfm_response->recenttracks->track as $tracks) {
 	
 	$img = $tracks->image[1];
@@ -99,7 +99,7 @@ License: GPLv2
 	echo "<td style='width: 50px;'>";
 	echo '<img height="50" width="50" src="'.$img.'" />';
 	echo "</td>";
-	echo "<td style='vertical-align: top; line-height: 1.1;'>";
+	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
     echo "<small>" . $name . "</small><br>";
     echo "<small>" . $artist . "</small><br>";
 	echo "<small>" . human_time_diff($time) . " ago</small>";
