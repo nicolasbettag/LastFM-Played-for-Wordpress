@@ -2,7 +2,7 @@
 /*
 Plugin Name: LastFM Played for Wordpress
 Plugin URI: http://nicolasbettag.com
-Description: Recently played LastFM Track Widget for Wordpress 4.0
+Description: Clean and simple recently played Last.FM Plugin for Wordpress
 Version: 0.3
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
