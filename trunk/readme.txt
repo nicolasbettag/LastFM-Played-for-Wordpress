@@ -14,4 +14,4 @@ Clean and simple recently played Last.FM Plugin for Wordpress
 Clean and simple recently played Last.FM Plugin for Wordpress
 
 == Installation ==
-Upload the plugin to your blog or install via the admin panel, activate it and add the widget the plugin to your sidebar.
+Upload the plugin to your blog or install via the admin panel, activate it, add the widget the plugin to your sidebar and enter your Last.FM Username.
