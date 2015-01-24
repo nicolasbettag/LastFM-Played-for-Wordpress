@@ -3,12 +3,12 @@
 Plugin Name: LastFM Played for Wordpress
 Plugin URI: http://nicolasbettag.com
 Description: Clean and simple recently played Last.FM Plugin for Wordpress
-Version: 0.4
+Version: 0.5
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
 License: GPLv2
 */
-/*  Copyright 2015 Nicolas Bettag (if you want to contact me, check http://nicolasbettag.com)
+/*  Copyright 2015 Nicolas Bettag
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -25,7 +25,7 @@ License: GPLv2
 	class LastWP_plugin extends WP_Widget {
 		function LastWP_plugin() {
 		parent::WP_Widget(false, $name = __('LastFM Played for Wordpress', 'LastWP_plugin') );
-		}
+	}
 	function form($instance) {
 	if( $instance) {
 	    $title = esc_attr($instance['title']);
@@ -52,14 +52,15 @@ License: GPLv2
    	$title = apply_filters('widget_title', $instance['title']);
     $textarea = $instance['textarea'];
    	echo $before_widget;
-   	echo '<div class="widget-text wp_widget_plugin_box" style="width:220px;">';
+   	echo '<div class="widget-text wp_widget_plugin_box">';
+   	echo '<div class="lastfm">';
     echo '<div class="widget-title" style="width: 90%; height:30px; margin-left:3%; border-bottom: 0px !important;">';
    
    	if ( $title ) {
     echo  $before_title . $title . $after_title ;
    	}
 	echo '</div>';
-    echo '<div class="widget-textarea" style="padding: 10px;">';
+    echo '<div class="widget-textarea">';
     if( $textarea ) {
 
     $lastfm_api = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='.$textarea.'&api_key=b3f34d8652bf87d8d1dcbfa5c53d245d&limit=5';
@@ -76,19 +77,19 @@ License: GPLv2
 	$time = $tracks->date['uts'];
 
 	echo "<table>";
-	echo "<tr>";
-	echo "<td style='width: 70px;'>";
+	echo "<tr style='border-bottom: 0px solid #000;'>";
+	echo "<td>";
 	echo '<img width="100%" height="100%" src="'.$userpicture.'" />';
 	echo "</td>";
 	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
-	echo $realname . '<br>';
+	echo "<b>" . $realname . '</b><br>';
 	echo '<a href="'.$user_url.'">' . $user_name . '</a><br>';
 	echo "<small>" . $scrobbles . ' Tracks</small>';
  	echo "</td>";
     echo "</tr>";
 	echo "</table>";
 
-	echo "<table style='margin-top: -100px;''>";
+	echo "<table>";
 	foreach ($lastfm_response->recenttracks->track as $tracks) {
 	
 	$img = $tracks->image[1];
@@ -104,9 +105,9 @@ License: GPLv2
 	echo '<img height="50" width="50" src="'.$img.'" />';
 	echo "</td>";
 	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
-    echo "<small>" . $name . "</small><br>";
+    echo "<small><b>" . $name . "</b></small><br>";
     echo "<small>" . $artist . "</small><br>";
-	echo "<small>now playing</small>";
+	echo "<small>now playing...</small>";
 
 	} else {
 
@@ -115,20 +116,24 @@ License: GPLv2
 	echo '<img height="50" width="50" src="'.$img.'" />';
 	echo "</td>";
 	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
-    echo "<small>" . $name . "</small><br>";
+    echo "<small><b>" . $name . "</small></b><br>";
     echo "<small>" . $artist . "</small><br>";
 	echo "<small>" . human_time_diff($time) . " ago</small>";	}
-
     echo "</td>";
     echo "</tr>";
-	echo "<br>";
 	}
 	echo "</table>";
    	}
+   	echo '</div>';
    	echo '</div>';
    	echo '</div>';
    	echo $after_widget;
 	}
 	}
 	add_action('widgets_init', create_function('', 'return register_widget("LastWP_plugin");')); 
+	add_action( 'wp_enqueue_scripts', 'last_stylesheet' );
+	function last_stylesheet() {
+    	wp_register_style( 'prefix-style', plugins_url('style.css', __FILE__) );
+    	wp_enqueue_style( 'prefix-style' );
+	}
 ?>

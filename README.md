@@ -27,4 +27,3 @@ https://wordpress.org/plugins/lastfm-played-for-wp/
 - How much songs do you want to show
 
 If you have any issue, please contact me.
-
