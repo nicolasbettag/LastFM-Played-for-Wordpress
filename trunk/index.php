@@ -3,7 +3,7 @@
 Plugin Name: LastFM Played for Wordpress
 Plugin URI: http://nicolasbettag.com
 Description: Clean and simple recently played Last.FM Plugin for Wordpress
-Version: 0.5
+Version: 0.6
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
 License: GPLv2
@@ -104,7 +104,7 @@ License: GPLv2
 	echo "<td style='width: 50px;'>";
 	echo '<img height="50" width="50" src="'.$img.'" />';
 	echo "</td>";
-	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
+	echo "<td style='vertical-align: top; line-height: 1.1; padding-left: 5px; padding-top: 10px;'>";
     echo "<small><b>" . $name . "</b></small><br>";
     echo "<small>" . $artist . "</small><br>";
 	echo "<small>now playing...</small>";
@@ -115,7 +115,7 @@ License: GPLv2
 	echo "<td style='width: 50px;'>";
 	echo '<img height="50" width="50" src="'.$img.'" />';
 	echo "</td>";
-	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
+	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px; padding-left: 5px; padding-top: 10px;'>";
     echo "<small><b>" . $name . "</small></b><br>";
     echo "<small>" . $artist . "</small><br>";
 	echo "<small>" . human_time_diff($time) . " ago</small>";	}
