@@ -1,4 +1,5 @@
 # LastFM-Played-for-WordPress
+**Clean and simple recently played Last.FM Plugin for Wordpress**
 
 === LastFM Played for Wordpress ===
 - Requires at least: 4.0
@@ -8,12 +9,13 @@
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-Clean and simple recently played Last.FM Plugin for Wordpress
-
 https://wordpress.org/plugins/lastfm-played-for-wp/
 
 
-== Installation ==
+----------
+
+Installation
+------------
 
 1. Upload the plugin to the `/wp-content/plugins/` directory or install it via the admin panel
 2. Activate the plugin through the 'Plugins' menu in WordPress
@@ -22,8 +24,14 @@ https://wordpress.org/plugins/lastfm-played-for-wp/
 5. Happy Scrobbling!
 
 
-== Coming features ==
-- Show cover (yes/no)
-- How much songs do you want to show
+----------
 
-If you have any issue, please contact me.
+
+Coming features
+---------------
+
+ - Show cover (yes/no) 
+ - How much songs do you want to show
+
+
+*Please use the issue tracker here, to track your bugs.*
