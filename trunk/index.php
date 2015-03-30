@@ -74,7 +74,6 @@ License: GPLv2
 	$user_url = $lastfm_user->user->url;
 	$userpicture = $lastfm_user->user->image[1];
 	$scrobbles = $lastfm_user->user->playcount;
-	$time = $tracks->date['uts'];
 
 	echo "<table>";
 	echo "<tr style='border-bottom: 0px solid #000;'>";
