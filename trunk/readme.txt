@@ -2,7 +2,7 @@
 Contributors: mangorausch
 Tags: LastFM, Scrobble, Widget
 Requires at least: 4.0
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -29,6 +29,7 @@ Clean and simple recently played Last.FM Plugin for Wordpress.
 Contact me, via Github or post your issue in the bug tracker there.
 
 https://github.com/nicolasbettag/LastFM-Played-for-Wordpress/issues
+https://nicolasbettag.com/lastfm-played-wordpress/
 
 == Screenshots ==
 
