@@ -3,7 +3,7 @@
 Plugin Name: LastFM Played for Wordpress
 Plugin URI: http://nicolasbettag.com
 Description: Clean and simple recently played Last.FM Plugin for Wordpress
-Version: 0.6
+Version: 0.7
 Author: Nicolas Bettag
 Author URI: http://nicolasbettag.com
 License: GPLv2
@@ -22,6 +22,7 @@ License: GPLv2
     The license for this software can likely be found here: 
     http://www.gnu.org/licenses/gpl-2.0.html
 */
+
 	class LastWP_plugin extends WP_Widget {
 		function LastWP_plugin() {
 		parent::WP_Widget(false, $name = __('LastFM Played for Wordpress', 'LastWP_plugin') );
@@ -54,7 +55,7 @@ License: GPLv2
    	echo $before_widget;
    	echo '<div class="widget-text wp_widget_plugin_box">';
    	echo '<div class="lastfm">';
-    echo '<div class="widget-title" style="width: 90%; height:30px; margin-left:3%; border-bottom: 0px !important;">';
+    echo '<div class="widget-title">';
    
    	if ( $title ) {
     echo  $before_title . $title . $after_title ;
@@ -76,13 +77,13 @@ License: GPLv2
 	$scrobbles = $lastfm_user->user->playcount;
 
 	echo "<table>";
-	echo "<tr style='border-bottom: 0px solid #000;'>";
+	echo "<tr>";
 	echo "<td>";
 	echo '<img width="100%" height="100%" src="'.$userpicture.'" />';
 	echo "</td>";
 	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
 	echo "<b>" . $realname . '</b><br>';
-	echo '<a href="'.$user_url.'">' . $user_name . '</a><br>';
+	echo '<a target="_blank" href="'.$user_url.'">' . $user_name . '</a><br>';
 	echo "<small>" . $scrobbles . ' Tracks</small>';
  	echo "</td>";
     echo "</tr>";
