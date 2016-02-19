@@ -32,7 +32,8 @@ Installation
 Coming features
 ---------------
 
- - Show cover (yes/no) 
+ - show/hide user name
+ - show/hide cover
  - How much songs do you want to show
 
 
