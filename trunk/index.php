@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: LastFM Played for Wordpress
-Plugin URI: http://nicolasbettag.com
+Plugin URI: https://nicolasbettag.com
 Description: Clean and simple recently played Last.FM Plugin for Wordpress
 Version: 0.7
 Author: Nicolas Bettag
@@ -11,7 +11,7 @@ License: GPLv2
 /*  Copyright 2016 Nicolas Bettag
 
     This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
+    it under the terms of the GNU General Public License, version 2, as
     published by the Free Software Foundation.
 
     This program is distributed in the hope that it will be useful,
@@ -19,7 +19,7 @@ License: GPLv2
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-    The license for this software can likely be found here: 
+    The license for this software can likely be found here:
     http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -56,7 +56,7 @@ License: GPLv2
    	echo '<div class="widget-text wp_widget_plugin_box">';
    	echo '<div class="lastfm">';
     echo '<div class="widget-title">';
-   
+
    	if ( $title ) {
     echo  $before_title . $title . $after_title ;
    	}
@@ -76,61 +76,62 @@ License: GPLv2
 	$userpicture = $lastfm_user->user->image[1];
 	$scrobbles = $lastfm_user->user->playcount;
 
-	echo "<table>";
-	echo "<tr>";
-	echo "<td>";
-	echo '<img width="100%" height="100%" src="'.$userpicture.'" />';
-	echo "</td>";
-	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
-	echo "<b>" . $realname . '</b><br>';
-	echo '<a target="_blank" href="'.$user_url.'">' . $user_name . '</a><br>';
-	echo "<small>" . $scrobbles . ' Tracks</small>';
- 	echo "</td>";
-    echo "</tr>";
-	echo "</table>";
+		echo "<table>";
+		echo "<tr>";
+		echo "<td>";
+		echo '<img width="100%" height="100%" src="'.$userpicture.'" />';
+		echo "</td>";
+		echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px;'>";
+		echo "<b>" . $realname . '</b><br>';
+		echo '<a target="_blank" href="'.$user_url.'">' . $user_name . '</a><br>';
+		echo "<small>" . $scrobbles . ' Tracks</small>';
+	 	echo "</td>";
+	    echo "</tr>";
+		echo "</table>";
 
-	echo "<table>";
+		echo "<table>";
 	foreach ($lastfm_response->recenttracks->track as $tracks) {
-	
-	$img = $tracks->image[1];
-	$name = $tracks->name;
-	$artist = $tracks->artist;
-	$time = $tracks->date['uts'];
-	$nowplaying = $tracks['nowplaying'];
+
+		$img = $tracks->image[1];
+		$name = $tracks->name;
+		$artist = $tracks->artist;
+		$time = $tracks->date['uts'];
+		$nowplaying = $tracks['nowplaying'];
 
 	if($nowplaying != ""){
-	
-	echo "<tr>";
-	echo "<td style='width: 50px;'>";
-	echo '<img height="50" width="50" src="'.$img.'" />';
-	echo "</td>";
-	echo "<td style='vertical-align: top; line-height: 1.1; padding-left: 5px; padding-top: 10px;'>";
-    echo "<small><b>" . $name . "</b></small><br>";
-    echo "<small>" . $artist . "</small><br>";
-	echo "<small>now playing...</small>";
+
+		echo "<tr>";
+		echo "<td style='width: 50px;'>";
+		echo '<img height="50" width="50" src="'.$img.'" />';
+		echo "</td>";
+		echo "<td style='vertical-align: top; line-height: 1.1; padding-left: 5px; padding-top: 10px;'>";
+	    echo "<small><b>" . $name . "</b></small><br>";
+	    echo "<small>" . $artist . "</small><br>";
+		echo "<small>now playing...</small>";
 
 	} else {
 
-	echo "<tr>";
-	echo "<td style='width: 50px;'>";
-	echo '<img height="50" width="50" src="'.$img.'" />';
-	echo "</td>";
-	echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px; padding-left: 5px; padding-top: 10px;'>";
-    echo "<small><b>" . $name . "</small></b><br>";
-    echo "<small>" . $artist . "</small><br>";
-	echo "<small>" . human_time_diff($time) . " ago</small>";	}
-    echo "</td>";
-    echo "</tr>";
+		echo "<tr>";
+		echo "<td style='width: 50px;'>";
+		echo '<img height="50" width="50" src="'.$img.'" />';
+		echo "</td>";
+		echo "<td style='vertical-align: top; line-height: 1.1; padding: 5px; padding-left: 5px; padding-top: 10px;'>";
+	    echo "<small><b>" . $name . "</small></b><br>";
+	    echo "<small>" . $artist . "</small><br>";
+		echo "<small>" . human_time_diff($time) . " ago</small>";	}
+	    echo "</td>";
+	    echo "</tr>";
+
 	}
-	echo "</table>";
+		echo "</table>";
    	}
-   	echo '</div>';
-   	echo '</div>';
-   	echo '</div>';
-   	echo $after_widget;
+	   	echo '</div>';
+	   	echo '</div>';
+	   	echo '</div>';
+	   	echo $after_widget;
 	}
 	}
-	add_action('widgets_init', create_function('', 'return register_widget("LastWP_plugin");')); 
+	add_action('widgets_init', create_function('', 'return register_widget("LastWP_plugin");'));
 	add_action( 'wp_enqueue_scripts', 'last_stylesheet' );
 	function last_stylesheet() {
     	wp_register_style( 'prefix-style', plugins_url('style.css', __FILE__) );
