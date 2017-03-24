@@ -3,7 +3,7 @@
 	Plugin Name: LastFM Played for Wordpress
 	Plugin URI: https://nicolasbettag.com
 	Description: Clean and simple recently played Last.FM Plugin for Wordpress
-	Version: 0.8
+	Version: 0.9
 	Author: Nicolas Bettag
 	Author URI: https://nicolasbettag.com
 	License: GPLv2
@@ -83,62 +83,60 @@
 			$scrobbles = $lastfm_user->user->playcount;
 
 			echo '<div class="lastfm_user">';
-			echo '<div class="lastfm_row">';
-			echo '<div class="lastfm_col">';
-			echo '<img width="100%" height="100%" src="'.$userpicture.'" />';
-			echo '</div>';
-			echo '<div class="lastfm_col">';
-			echo '<b>' . $realname . '</b><br>';
-			echo '<a target="_blank" href="'.$user_url.'">' . $user_name . '</a><br>';
-			echo '<small>' . $scrobbles . ' Tracks</small>';
-			echo '</div>';
-			echo '</div>';
+				echo '<div class="lastfm_row">';
+					echo '<div class="lastfm_col">';
+						echo '<img width="100%" height="100%" src="'.$userpicture.'" />';
+					echo '</div>';
+					echo '<div class="lastfm_col">';
+						echo '<b>' . $realname . '</b><br>';
+						echo '<a target="_blank" href="'.$user_url.'">' . $user_name . '</a><br>';
+						echo '<small>' . $scrobbles . ' Tracks</small>';
+					echo '</div>';
+				echo '</div>';
 			echo '</div>';
 
 			echo '<div class="lastfm_played">';
 
-			foreach ($lastfm_response->recenttracks->track as $tracks) {
+				foreach ($lastfm_response->recenttracks->track as $tracks) {
 
-				$img = $tracks->image[1];
-				$name = $tracks->name;
-				$artist = $tracks->artist;
-				$time = $tracks->date['uts'];
-				$nowplaying = $tracks['nowplaying'];
+					$img = $tracks->image[1];
+					$name = $tracks->name;
+					$artist = $tracks->artist;
+					$time = $tracks->date['uts'];
+					$nowplaying = $tracks['nowplaying'];
 
-				if($nowplaying != ""){
+					if($nowplaying != ""){
 
-					echo '<div class="lastfm_row lastfm_row_border">';
-					echo '<div class="last_fm_col_small">';
-					echo '<img height="50" width="50" src="'.$img.'" />';
-					echo '</div>';
-					echo '<div class="col">';
-					echo '<small><b>' . $name . '</b></small><br>';
-					echo '<small>' . $artist . '</small><br>';
-					echo '<small>now playing...</small>';
-					echo '</div>';
-					echo '</div>';
+						echo '<div class="lastfm_row lastfm_row_border">';
+							echo '<div class="last_fm_col_small">';
+								echo '<img height="50" width="50" src="'.$img.'" />';
+							echo '</div>';
+							echo '<div class="lastfm_col">';
+								echo '<small><b>' . $name . '</b></small><br>';
+								echo '<small>' . $artist . '</small><br>';
+								echo '<small>now playing...</small>';
+							echo '</div>';
+						echo '</div>';
 
-				} else {
+					} else {
 
-					echo '<div class="lastfm_row lastfm_row_border">';
-					echo '<div class="lastfm_col_small">';
-					echo '<img height="50" width="50" src="'.$img.'" />';
-					echo '</div>';
-					echo '<div class="lastfm_col">';
-					echo '<p><b>' . $name . '</b></p>';
-					echo '<p>' . $artist . '</p>';
-					echo '<p>' . human_time_diff($time) . ' ago</p>';	}
-					echo '</div>';
-					echo '</div>';
+						echo '<div class="lastfm_row lastfm_row_border">';
+							echo '<div class="lastfm_col_small">';
+								echo '<img height="50" width="50" src="'.$img.'" />';
+							echo '</div>';
+							echo '<div class="lastfm_col">';
+								echo '<p><b>' . $name . '</b></p>';
+								echo '<p>' . $artist . '</p>';
+								echo '<p>' . human_time_diff($time) . ' ago</p>';	}
+							echo '</div>';
+						echo '</div>';
 
+					}
 				}
 
-				echo '</div>';
-			}
-
 			echo '</div>';
 			echo '</div>';
-			echo '</div>';
+			echo '</section>';
 			echo $after_widget;
 		}
 	}

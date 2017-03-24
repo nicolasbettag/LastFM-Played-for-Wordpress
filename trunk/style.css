@@ -3,6 +3,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  max-width: 200px;
 }
 .lastfm p {
   margin: 0;
