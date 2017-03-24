@@ -10,9 +10,14 @@
   padding: 0;
   line-height: 1.25;
   font-size: 10px;
+  text-align: left;
 }
 .lastfm img {
   border: 0.1px solid #000000;
+}
+.lastfm .cover {
+  width: 100%;
+  height: auto;
 }
 .lastfm a:link,
 .lastfm a:visited {
@@ -28,7 +33,7 @@
 }
 .lastfm .lastfm_row_border {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  margin: 10px 0;
+  padding: 5px 0;
 }
 .lastfm .lastfm_row_border:last-child {
   border-bottom: none;

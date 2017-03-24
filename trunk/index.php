@@ -3,7 +3,7 @@
 	Plugin Name: LastFM Played for Wordpress
 	Plugin URI: https://nicolasbettag.com
 	Description: Clean and simple recently played Last.FM Plugin for Wordpress
-	Version: 0.9
+	Version: 0.92
 	Author: Nicolas Bettag
 	Author URI: https://nicolasbettag.com
 	License: GPLv2
@@ -109,7 +109,7 @@
 
 						echo '<div class="lastfm_row lastfm_row_border">';
 							echo '<div class="last_fm_col_small">';
-								echo '<img height="50" width="50" src="'.$img.'" />';
+								echo '<img class="cover" src="'.$img.'" />';
 							echo '</div>';
 							echo '<div class="lastfm_col">';
 								echo '<small><b>' . $name . '</b></small><br>';
@@ -122,7 +122,7 @@
 
 						echo '<div class="lastfm_row lastfm_row_border">';
 							echo '<div class="lastfm_col_small">';
-								echo '<img height="50" width="50" src="'.$img.'" />';
+								echo '<img class="cover" src="'.$img.'" />';
 							echo '</div>';
 							echo '<div class="lastfm_col">';
 								echo '<p><b>' . $name . '</b></p>';
