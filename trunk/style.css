@@ -26,6 +26,9 @@
 .lastfm .widget-title {
   border: none;
 }
+.lastfm_center {
+  align-self: center;
+}
 .lastfm .lastfm_row {
   display: -webkit-box;
   display: -ms-flexbox;
