@@ -1,35 +1,48 @@
-.lastfm {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    font-size: 13px !important;
-    line-height: 2 !important;
-    margin-bottom: 25px;
+.lastfm-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 14px;
 }
 
-.lastfm a:link,
-.lastfm a:visited {
-    text-decoration: none;
+.lastfm-user {
+    margin-bottom: 15px;
 }
 
-.lastfm img {
-    border: 0.1px solid #000;
-    width: 50px;
-    height: 50px;
+.lastfm-tracklist {
+    margin-bottom: 10px;
 }
 
-.lastfm table {
-    border-collapse: collapse;
+.lastfm-tracklist:last-child {
+    margin-bottom: 0;
 }
 
-.lastfm tr {
-    border-bottom: 1px solid #000;
+.lastfm-row small {
+    font-size: 11px;
 }
 
-.lastfm .widget-title {
-    border: none;
+.lastfm-col {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    line-height: 1;
 }
 
-.lastfm td {
-    vertical-align: top;
-    line-height: 1.1;
-    padding: 5px;
+.lastfm-col-quarter {
+    -webkit-box-flex:0;
+        -ms-flex:0 0 25%;
+            flex:0 0 25%;
+    margin-right: 20px;
+}
+
+.lastfm-col-twenty {
+    -webkit-box-flex:0;
+        -ms-flex:0 0 20%;
+            flex:0 0 20%;
+    margin-right: 10px;
+}
+
+.lastfm-col-center {
+    -ms-flex-item-align: center;
+        align-self: center;
 }

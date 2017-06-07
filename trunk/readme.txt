@@ -2,17 +2,16 @@
 Contributors: mangorausch
 Tags: LastFM, Last FM, Scrobble
 Requires at least: 4.0
-Tested up to: 4.8
+Tested up to: 4.9
 Stable tag: trunk
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: MIT
 
-Clean and simple recently played Last.FM Plugin for Wordpress
+Clean and simple recently played Last.FM Plugin for WordPress
 
 
 == Description ==
 
-Clean and simple recently played Last.FM Plugin for Wordpress.
+Clean and simple recently played Last.FM Plugin for WordPress.
 
 == Installation ==
 
@@ -29,7 +28,6 @@ Clean and simple recently played Last.FM Plugin for Wordpress.
 Contact me, via Github or post your issue in the bug tracker there.
 
 https://github.com/nicolasbettag/LastFM-Played-for-Wordpress/issues
-https://nicolasbettag.com/lastfm-played-wordpress/
 
 == Screenshots ==
 
