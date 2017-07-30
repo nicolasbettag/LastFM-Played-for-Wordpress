@@ -90,6 +90,8 @@ HTML;
 
 		if($nowplaying != "") {
 			$time_final = "now playing...";
+		} else {
+			$time_final = $time;
 		}
 
 		if (empty($img)) {
@@ -105,7 +107,7 @@ HTML;
 			<div class="lastfm-col">
 				<small><b>$name</small></b><br>
 				<small>$artist</small><br>
-				<small>$time</small>
+				<small>$time_final</small>
 			</div>
 		</div>
 HTML;

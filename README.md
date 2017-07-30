@@ -36,4 +36,4 @@ Coming features
  - How much songs do you want to show
 
 
-*Please use the issue tracker here, to track your bugs.*
+*Please use the Github issue tracker!
