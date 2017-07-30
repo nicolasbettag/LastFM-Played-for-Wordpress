@@ -33,7 +33,5 @@ Coming features
 
  - show/hide user name
  - show/hide cover
- - How much songs do you want to show
-
 
 *Please use the Github issue tracker!
