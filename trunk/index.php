@@ -3,7 +3,7 @@
 Plugin Name: LastFM Played for WordPress
 Plugin URI: https://nicolasbettag.com
 Description: Clean and simple recently played Last.FM Plugin for WordPress
-Version: 0.99
+Version: 0.99.1
 Author: Nicolas Bettag
 Author URI: https://nicolasbettag.com
 License: MIT
